@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Please Enter Your Details For Our Dating Website!</title>
+
 </head>
+
+<style>
+
+    article, aside, figure, footer, header, hgroup,
+
+    menu, nav, section { display: block; }
+
+</style>
+
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
+
+      rel="stylesheet" type="text/css" />
+
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 <style>
     label{display:inline-block; width: 180px; text-align: right}
     fieldset{
@@ -16,17 +33,21 @@
 
 <header> <h1> Please Enter Your Details For Our Dating Website! </h1> </header>
 <body>
-<fieldset style="background: #faff7e">
+<fieldset style="background: #fffebe">
     <legend> Your Face </legend>
 Your Image
-    <input type="file"
+    <input type='file' onchange="readURL(this);" />
+    <!--<input type="file"
            id="file"
-           value="Choose a Photo">
+           value="Choose a Photo"-->
     <div><label>Image Preview:</label></div>
+
+
+    <img id="blah" src="#" alt="your image" />
 </fieldset>
 
 
-<fieldset style="background: #faff7e">
+<fieldset style="background: #fffebe">
         <legend>Your General Details</legend>
     <table>
         <!--Row 1-->
@@ -291,7 +312,7 @@ Your Image
     </table>
 </fieldset>
 
-<fieldset style="background: #faff7e">
+<fieldset style="background: #fffebe">
 
     <legend>Your Indicators</legend>
     <table>
@@ -314,7 +335,7 @@ Your Image
     </table>
 </fieldset>
 
-<fieldset style="background: #faff7e">
+<fieldset style="background: #fffebe">
     <legend>Your Contact Information</legend>
 <table>
     <div><label>Email:</label>
@@ -329,21 +350,59 @@ Your Image
            id="name"
            name="Your Full Name"
            required></div>
-    <div><label>Address</label>
-
+    <label>Address</label>
 
         <textarea rows="4" cols="50">
 
 </textarea>
-    </div>
 
-    Method to contact you
+
+    <!--Method to contact you
     <input type="checkbox" name="Check" value="Check"> Email
     <input type="checkbox" name="Check" value="Check"> Whatsapp
-    <input type="checkbox" name="Check" value="Check"> In-app chat
+    <input type="checkbox" name="Check" value="Check"> In-app chat-->
+<td>
+    <label for="Method of contact">Method to contact you:</label>
+    <input id="Method of contact" type="checkbox">
+    <label style="width: auto" for="emails">Email</label>
+    <input id="emails" type="checkbox">
+    <label style="width: auto" for="Whatsapp">Whatsapp</label>
+    <input id="Whatsapp" type="checkbox">
+    <label style="width: auto" for="inappchat">In App Chat</label>
+    <input id="inappchat" type="hidden">
+    </td>
 
 </table>
 </fieldset>
 <input type="submit" value="Submit">
+
+<script type="text/javascript">
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                $('#blah')
+
+                        .attr('src', e.target.result)
+
+                        .width(150)
+
+                        .height(200);
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+
+        }
+
+    }
+
+</script>
+
 </body>
 </html>
